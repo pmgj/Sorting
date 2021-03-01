@@ -16,13 +16,13 @@ public class MyPanel extends JPanel {
     public MyPanel(MainWindow mw) {
         this.frame = mw;
     }
-    
+
     private void createRandomizedArray(int qtd) {
         this.numbers = new ArrayList(qtd);
         for (int i = 1; i <= qtd; i++) {
             this.numbers.add(i);
         }
-        Collections.shuffle(this.numbers);
+        Collections.shuffle(numbers);
     }
 
     public void shuffle() {
@@ -33,6 +33,7 @@ public class MyPanel extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
+        String graph = (String) this.frame.getCbGraphics().getSelectedItem();
         g.clearRect(0, 0, this.getWidth(), this.getHeight());
         g.setColor(Color.black);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
@@ -44,7 +45,11 @@ public class MyPanel extends JPanel {
         g.setColor(Color.white);
         for (int idx = 0; idx < QTD; idx++) {
             int n = numbers.get(idx);
-            g.fillRect(idx * (width + innerSpace) + outerSpace, this.getHeight() - n * height - outerSpace, width, n * height);
+            if (graph.equals("Histogram")) {
+                g.fillRect(idx * (width + innerSpace) + outerSpace, this.getHeight() - n * height - outerSpace, width, n * height);
+            } else {
+                g.fillRect(idx * (width + innerSpace) + outerSpace, this.getHeight() - n * height - outerSpace, width, height);
+            }
         }
     }
 }
