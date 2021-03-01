@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
-import view.graphics.UIGraphic;
+import model.PropertiesFile;
 
 public class MainWindow extends JFrame {
 
@@ -22,6 +22,12 @@ public class MainWindow extends JFrame {
     private JComboBox cbAlgorithms;
     private JSpinner sQuantity;
     private JSpinner sDelay;
+    private JButton bShuffle;
+    private JButton bRun;
+
+    public MainWindow() {
+        super("Sorting Algorithms");
+    }
 
     private void createWindow() {
         this.setPreferredSize(new Dimension(618, 726));
@@ -36,24 +42,29 @@ public class MainWindow extends JFrame {
         this.add(topPanel);
 
         JPanel middlePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        cbGraphics = new JComboBox(UIGraphic.getGraphics());
+        PropertiesFile pf = PropertiesFile.getInstance();
+        cbGraphics = new JComboBox(pf.getGraphics());
         cbGraphics.setToolTipText("How to show the sorting algorithms");
         cbGraphics.addActionListener(ae -> pCanvas.repaint());
         middlePanel.add(cbGraphics);
-        cbAlgorithms = new JComboBox(new String[]{"Bubble Sort", "Insertion Sort"});
+        cbAlgorithms = new JComboBox(pf.getAlgorithms());
         cbAlgorithms.setToolTipText("Sorting Algorithm");
         middlePanel.add(cbAlgorithms);
-        sQuantity = new JSpinner(new SpinnerNumberModel(25, 1, 2000, 1));
+        sQuantity = new JSpinner(new SpinnerNumberModel(pf.getNumbersQuantity(), 1, 2000, 1));
         sQuantity.setToolTipText("Quantity of numbers to sort");
         middlePanel.add(sQuantity);
-        sDelay = new JSpinner(new SpinnerNumberModel(5, 1, 2000, 1));
+        sDelay = new JSpinner(new SpinnerNumberModel(pf.getDelay(), 1, 2000, 1));
         sDelay.setToolTipText("Delay in milisseconds");
         middlePanel.add(sDelay);
-        JButton bShuffle = new JButton("Shuffle");
+        bShuffle = new JButton("Shuffle");
         bShuffle.addActionListener(ae -> pCanvas.shuffle((Integer) sQuantity.getValue()));
         middlePanel.add(bShuffle);
-        JButton bRun = new JButton("Run!");
-        bRun.addActionListener(ae -> pCanvas.run());
+        bRun = new JButton("Run!");
+        bRun.addActionListener(ae -> {
+            bShuffle.setEnabled(false);
+            bRun.setEnabled(false);
+            pCanvas.run();
+        });
         middlePanel.add(bRun);
         middlePanel.setMaximumSize(new Dimension(640, 50));
         this.add(middlePanel);
@@ -65,6 +76,11 @@ public class MainWindow extends JFrame {
         this.pack();
     }
 
+    public static void main(String[] args) {
+        MainWindow w = new MainWindow();
+        w.createWindow();
+    }
+
     public JComboBox getCbGraphics() {
         return cbGraphics;
     }
@@ -73,20 +89,15 @@ public class MainWindow extends JFrame {
         return cbAlgorithms;
     }
 
-    public JSpinner getsQuantity() {
-        return sQuantity;
-    }
-
     public JSpinner getsDelay() {
         return sDelay;
     }
 
-    public MainWindow() {
-        super("Sorting Algorithms");
+    public JButton getbShuffle() {
+        return bShuffle;
     }
 
-    public static void main(String[] args) {
-        MainWindow w = new MainWindow();
-        w.createWindow();
+    public JButton getbRun() {
+        return bRun;
     }
 }
