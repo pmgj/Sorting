@@ -19,7 +19,9 @@ public class MainWindow extends JFrame {
     /* UI Components */
     private MyPanel pCanvas;
     private JComboBox cbGraphics;
+    private JComboBox cbAlgorithms;
     private JSpinner sQuantity;
+    private JSpinner sDelay;
 
     private void createWindow() {
         this.setPreferredSize(new Dimension(618, 726));
@@ -38,12 +40,21 @@ public class MainWindow extends JFrame {
         cbGraphics.setToolTipText("How to show the sorting algorithms");
         cbGraphics.addActionListener(ae -> pCanvas.repaint());
         middlePanel.add(cbGraphics);
+        cbAlgorithms = new JComboBox(new String[]{"Bubble Sort", "Insertion Sort"});
+        cbAlgorithms.setToolTipText("Sorting Algorithm");
+        middlePanel.add(cbAlgorithms);
         sQuantity = new JSpinner(new SpinnerNumberModel(25, 1, 2000, 1));
         sQuantity.setToolTipText("Quantity of numbers to sort");
         middlePanel.add(sQuantity);
+        sDelay = new JSpinner(new SpinnerNumberModel(5, 1, 2000, 1));
+        sDelay.setToolTipText("Delay in milisseconds");
+        middlePanel.add(sDelay);
         JButton bShuffle = new JButton("Shuffle");
         bShuffle.addActionListener(ae -> pCanvas.shuffle((Integer) sQuantity.getValue()));
         middlePanel.add(bShuffle);
+        JButton bRun = new JButton("Run!");
+        bRun.addActionListener(ae -> pCanvas.run());
+        middlePanel.add(bRun);
         middlePanel.setMaximumSize(new Dimension(640, 50));
         this.add(middlePanel);
 
@@ -58,8 +69,16 @@ public class MainWindow extends JFrame {
         return cbGraphics;
     }
 
+    public JComboBox getCbAlgorithms() {
+        return cbAlgorithms;
+    }
+
     public JSpinner getsQuantity() {
         return sQuantity;
+    }
+
+    public JSpinner getsDelay() {
+        return sDelay;
     }
 
     public MainWindow() {
