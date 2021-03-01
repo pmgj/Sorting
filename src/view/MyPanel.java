@@ -2,20 +2,40 @@ package view;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.swing.JPanel;
 
 public class MyPanel extends JPanel {
 
+    /* UI Components */
+    private final MainWindow frame;
+    protected List<Integer> numbers;
+
+    public MyPanel(MainWindow mw) {
+        this.frame = mw;
+    }
+    
+    private void createRandomizedArray(int qtd) {
+        this.numbers = new ArrayList(qtd);
+        for (int i = 1; i <= qtd; i++) {
+            this.numbers.add(i);
+        }
+        Collections.shuffle(this.numbers);
+    }
+
+    public void shuffle() {
+        int quantity = (Integer) this.frame.getsQuantity().getValue();
+        this.createRandomizedArray(quantity);
+        repaint();
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
         g.clearRect(0, 0, this.getWidth(), this.getHeight());
         g.setColor(Color.black);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
-        Collections.shuffle(numbers);
         int outerSpace = 5;
         int innerSpace = 1;
         int QTD = numbers.size();
