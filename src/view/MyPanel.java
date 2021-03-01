@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.swing.JPanel;
+import view.graphics.UIGraphic;
 
 public class MyPanel extends JPanel {
 
@@ -25,31 +26,21 @@ public class MyPanel extends JPanel {
         Collections.shuffle(numbers);
     }
 
-    public void shuffle() {
-        int quantity = (Integer) this.frame.getsQuantity().getValue();
+    public void shuffle(int quantity) {
         this.createRandomizedArray(quantity);
         repaint();
     }
 
     @Override
     protected void paintComponent(Graphics g) {
-        String graph = (String) this.frame.getCbGraphics().getSelectedItem();
+        UIGraphic grap = (UIGraphic) this.frame.getCbGraphics().getSelectedItem();
+        grap.setGraphics(g, this.getWidth(), this.getHeight(), numbers.size());
         g.clearRect(0, 0, this.getWidth(), this.getHeight());
         g.setColor(Color.black);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
-        int outerSpace = 5;
-        int innerSpace = 1;
-        int QTD = numbers.size();
-        int width = (this.getWidth() - 2 * outerSpace - (QTD - 1) * innerSpace) / QTD;
-        int height = (this.getHeight() - 2 * outerSpace) / QTD;
         g.setColor(Color.white);
-        for (int idx = 0; idx < QTD; idx++) {
-            int n = numbers.get(idx);
-            if (graph.equals("Histogram")) {
-                g.fillRect(idx * (width + innerSpace) + outerSpace, this.getHeight() - n * height - outerSpace, width, n * height);
-            } else {
-                g.fillRect(idx * (width + innerSpace) + outerSpace, this.getHeight() - n * height - outerSpace, width, height);
-            }
+        for (int idx = 0; idx < numbers.size(); idx++) {
+            grap.draw(idx, numbers.get(idx));
         }
     }
 }

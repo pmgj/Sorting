@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
+import view.graphics.UIGraphic;
 
 public class MainWindow extends JFrame {
 
@@ -33,7 +34,7 @@ public class MainWindow extends JFrame {
         this.add(topPanel);
 
         JPanel middlePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        cbGraphics = new JComboBox(new String[]{"Histogram", "Line"});
+        cbGraphics = new JComboBox(UIGraphic.getGraphics());
         cbGraphics.setToolTipText("How to show the sorting algorithms");
         cbGraphics.addActionListener(ae -> pCanvas.repaint());
         middlePanel.add(cbGraphics);
@@ -41,13 +42,13 @@ public class MainWindow extends JFrame {
         sQuantity.setToolTipText("Quantity of numbers to sort");
         middlePanel.add(sQuantity);
         JButton bShuffle = new JButton("Shuffle");
-        bShuffle.addActionListener(ae -> pCanvas.shuffle());
+        bShuffle.addActionListener(ae -> pCanvas.shuffle((Integer) sQuantity.getValue()));
         middlePanel.add(bShuffle);
         middlePanel.setMaximumSize(new Dimension(640, 50));
         this.add(middlePanel);
 
         pCanvas = new MyPanel(this);
-        pCanvas.shuffle();
+        pCanvas.shuffle((Integer) sQuantity.getValue());
         this.add(pCanvas);
 
         this.pack();
