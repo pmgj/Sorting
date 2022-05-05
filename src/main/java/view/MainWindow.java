@@ -29,7 +29,7 @@ public class MainWindow extends JFrame {
     }
 
     private void createWindow() {
-        this.setPreferredSize(new Dimension(618, 726));
+        this.setPreferredSize(new Dimension(720, 726));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.PAGE_AXIS));
@@ -59,7 +59,7 @@ public class MainWindow extends JFrame {
             pCanvas.run((SortAlgorithm) cbAlgorithms.getSelectedItem());
         });
         middlePanel.add(bRun);
-        middlePanel.setMaximumSize(new Dimension(640, 50));
+        middlePanel.setMaximumSize(new Dimension(720, 50));
         this.add(middlePanel);
 
         pCanvas = new MyPanel(this);
