@@ -36,9 +36,9 @@ public class MyPanel extends JPanel {
 
     @SuppressWarnings("unchecked")
     public void run(SortAlgorithm sortingAlgorithm) {
-        List<Integer> des = new ArrayList<>(this.numbers);
-        DynamicInvocationHandler dih = new DynamicInvocationHandler(des);
-        List<Integer> proxyInstance = (List<Integer>) Proxy.newProxyInstance(List.class.getClassLoader(), new Class[]{List.class}, dih);
+        var des = new ArrayList<>(this.numbers);
+        var dih = new DynamicInvocationHandler(des);
+        var proxyInstance = (List<Integer>) Proxy.newProxyInstance(List.class.getClassLoader(), new Class[]{List.class}, dih);
         sortingAlgorithm.sort(proxyInstance);
         this.commands = dih.getCommands();
         repaint();
@@ -51,13 +51,13 @@ public class MyPanel extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
-        UIGraphic grap = (UIGraphic) this.frame.getCbGraphics().getSelectedItem();
+        var grap = (UIGraphic) this.frame.getCbGraphics().getSelectedItem();
         grap.setGraphics((Graphics2D) g, this.getWidth(), this.getHeight(), this.numbers.size());
         g.clearRect(0, 0, this.getWidth(), this.getHeight());
         g.setColor(Color.black);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
         if (!commands.isEmpty()) {
-            Command first = commands.remove(0);
+            var first = commands.remove(0);
             int value = first.getValue();
             int index = first.getIndex();
             for (int idx = 0; idx < numbers.size(); idx++) {
@@ -73,7 +73,7 @@ public class MyPanel extends JPanel {
                 numbers.set(first.getIndex(), value);
             }
             int delay = (Integer) this.frame.getsDelay().getValue();
-            Timer timer = new Timer(delay, ae -> repaint());
+            var timer = new Timer(delay, ae -> repaint());
             timer.setRepeats(false);
             timer.start();
         } else {

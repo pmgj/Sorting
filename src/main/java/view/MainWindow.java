@@ -34,16 +34,16 @@ public class MainWindow extends JFrame {
         this.setVisible(true);
         this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.PAGE_AXIS));
 
-        JPanel middlePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        PropertiesFile pf = PropertiesFile.getInstance();
+        var middlePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        var pf = PropertiesFile.getInstance();
         cbGraphics = new JComboBox<>(pf.getGraphics());
         cbGraphics.setToolTipText("How to show the sorting algorithms");
         cbGraphics.addActionListener(ae -> pCanvas.repaint());
         middlePanel.add(cbGraphics);
-        JComboBox<SortAlgorithm> cbAlgorithms = new JComboBox<>(pf.getAlgorithms());
+        var cbAlgorithms = new JComboBox<>(pf.getAlgorithms());
         cbAlgorithms.setToolTipText("Sorting Algorithm");
         middlePanel.add(cbAlgorithms);
-        JSpinner sQuantity = new JSpinner(new SpinnerNumberModel(pf.getNumbersQuantity(), 1, 2000, 1));
+        var sQuantity = new JSpinner(new SpinnerNumberModel(pf.getNumbersQuantity(), 1, 2000, 1));
         sQuantity.setToolTipText("Quantity of numbers to sort");
         middlePanel.add(sQuantity);
         sDelay = new JSpinner(new SpinnerNumberModel(pf.getDelay(), 1, 2000, 1));
@@ -70,7 +70,7 @@ public class MainWindow extends JFrame {
     }
 
     public static void main(String[] args) {
-        MainWindow w = new MainWindow();
+        var w = new MainWindow();
         w.createWindow();
     }
 
