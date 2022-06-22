@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ordenação</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" type="text/css" href="index.css" />
+        <script type="module" src="index.js"></script>
+    </head>
+    <body>
+        <h1>Ordenação</h1>
+        <div id="info">
+            <form>
+                <select name="graphic" title="How to show the sorting algorithms">
+                </select>
+                <select name="sortingAlgorithm" title="Sorting Algorithm">
+                </select>
+                <input type="number" value="32" name="qtd" min="1" title="Quantity of numbers to sort" />
+                <input type="number" value="1" name="delay" min="0" title="Delay" />
+                <input type="button" value="Shuffle" name="shuffle" />
+                <input type="button" value="Run!" name="run" />
+            </form>
+            <canvas id="gc" width="1000" height="400"></canvas>
+        </div>
+    </body>
+</html>
