@@ -42,4 +42,7 @@ th:nth-child(2), td:nth-child(2) {
     h1 {
         display: none;
     }
+    canvas {
+        margin-top: 1em;
+    }
 }
