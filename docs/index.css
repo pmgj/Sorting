@@ -38,3 +38,8 @@ td, th {
 th:nth-child(2), td:nth-child(2) {
     text-align: center;
 }
+@media (max-width: 480px) {
+    h1 {
+        display: none;
+    }
+}

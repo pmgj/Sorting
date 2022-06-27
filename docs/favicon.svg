@@ -1,0 +1,7 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+    <rect x="0" y="12" width="4" height="4" fill="blue" stroke-width="0" />
+    <rect x="4" y="8" width="4" height="8" fill="red" stroke-width="0" />
+    <rect x="8" y="4" width="4" height="12" fill="green" stroke-width="0" />
+    <rect x="12" y="0" width="4" height="16" fill="yellow" stroke-width="0" />
+</svg>

@@ -77,7 +77,7 @@ class MyPanel {
     }
     registerEvents() {
         let form = document.forms[0];
-        let select = form.sortingAlgorithm;
+        let select = form.algorithm;
         for (let i in algorithms) {
             let option = document.createElement("option");
             option.text = algorithms[i];
@@ -92,7 +92,7 @@ class MyPanel {
             select.add(option);
         }
         this.cbGraphics = form.graphic;
-        this.cbAlgorithms = form.sortingAlgorithm;
+        this.cbAlgorithms = form.algorithm;
         this.sQuantity = form.qtd;
         this.sDelay = form.delay;
         this.bShuffle = form.shuffle;
