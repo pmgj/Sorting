@@ -44,5 +44,6 @@ th:nth-child(2), td:nth-child(2) {
     }
     canvas {
         margin-top: 1em;
+        height: 50vh;
     }
 }
