@@ -1,6 +1,6 @@
 # Sorting
 
-Este projeto apresenta a visualização de vários algoritmos de ordenação utilizando diferentes tipos de gráficos. Os algoritmos de ordenação atualmente implementados são:
+This project presents a graphical visualization of several sorting algorithms using different types of graphics. The sorting algorithms currently implemented are:
 
 - Binary Insertion Sort
 - Bubble Sort
@@ -19,4 +19,4 @@ Este projeto apresenta a visualização de vários algoritmos de ordenação uti
 - Selection Sort
 - Shell Sort 
 
-Os gráficos podem ser alterados de forma dinâmica, utilizando o padrão de projeto Strategy. Os passos da ordenação estão separados dos algoritmos de ordenação usando o padrão de projeto Proxy. As configurações da aplicação estão armazenadas em um arquivo utilizando o padrão de projeto Singleton.
+Graphics can be dinamically changed, using the Strategy design pattern. The sorting algorithms are separated from the graphics using the Proxy design pattern. Application settings are stored in a properties file using the Singleton design pattern.
