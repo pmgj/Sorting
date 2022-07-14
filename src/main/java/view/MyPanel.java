@@ -59,14 +59,7 @@ public class MyPanel extends JPanel {
         if (!commands.isEmpty()) {
             var first = commands.remove(0);
             int value = first.getValue();
-            int index = first.getIndex();
             for (int idx = 0; idx < numbers.size(); idx++) {
-                g.setColor(Color.white);
-                if (first.getAction() == Command.READ && index == idx) {
-                    g.setColor(Color.green);
-                } else if (first.getAction() == Command.WRITE && index == idx) {
-                    g.setColor(Color.red);
-                }
                 grap.draw(idx, numbers.get(idx));
             }
             if (first.getAction() == Command.WRITE) {
