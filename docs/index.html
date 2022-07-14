@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Sorting</title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" type="text/css" href="index.css" />
-        <link rel="icon" type="image/svg" href="favicon.svg" />
-        <script type="module" src="index.js"></script>
-    </head>
-    <body>
-        <h1>Sorting</h1>
-        <div id="info">
-            <form>
-                <select name="graphic" title="How to show the sorting algorithms">
-                </select>
-                <select name="algorithm" title="Sorting Algorithm">
-                </select>
-                <input type="number" value="32" name="qtd" min="1" title="Quantity of numbers to sort" />
-                <input type="number" value="1" name="delay" min="0" title="Delay" />
-                <input type="button" value="Shuffle" name="shuffle" />
-                <input type="button" value="Run!" name="run" />
-            </form>
-            <canvas id="gc" width="1000" height="400"></canvas>
-        </div>
-    </body>
+
+<head>
+    <title>Sorting</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="icon" type="image/svg" href="favicon.svg" />
+    <script type="module" src="index.js"></script>
+</head>
+
+<body>
+    <h1>Sorting</h1>
+    <div id="info">
+        <form>
+            <select name="graphic" title="How to show the sorting algorithms">
+            </select>
+            <select name="algorithm" title="Sorting Algorithm">
+            </select>
+            <input type="number" value="32" name="qtd" min="1" title="Quantity of numbers to sort" />
+            <input type="number" value="1" name="delay" min="0" title="Delay" />
+            <input type="button" value="Shuffle" name="shuffle" />
+            <input type="button" value="Run!" name="run" />
+        </form>
+        <canvas id="gc" width="1000" height="400"></canvas>
+    </div>
+</body>
+
 </html>

@@ -1,4 +1,4 @@
-export class SortingAlgorithm {
+class SortingAlgorithm {
     constructor(name) {
         this.name = name;
     }
@@ -502,4 +502,4 @@ class TimSort extends SortingAlgorithm {
         }
     }
 }
-export const algorithms = [new BinaryInsertionSort(), new BubbleSort(), new CocktailSort(), new CombSort(), new CycleSort(), new DoubleSelectionSort(), new GnomeSort(), new HeapSort(), new InsertionSort(), new MergeSort(), new OddEvenSort(), new QuickSort(), new RadixSort(), new SelectionSort(), new ShellSort(), new TimSort()];
+export default [new BinaryInsertionSort(), new BubbleSort(), new CocktailSort(), new CombSort(), new CycleSort(), new DoubleSelectionSort(), new GnomeSort(), new HeapSort(), new InsertionSort(), new MergeSort(), new OddEvenSort(), new QuickSort(), new RadixSort(), new SelectionSort(), new ShellSort(), new TimSort()];

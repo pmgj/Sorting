@@ -1,5 +1,5 @@
-import {SortingAlgorithm, algorithms} from "./sorting.js";
-import {UIGraphics, graphics} from "./graphics.js";
+import algorithms from "./sorting.js";
+import graphics from "./graphics.js";
 
 class MyPanel {
     constructor() {
@@ -27,7 +27,7 @@ class MyPanel {
         ctx.fillRect(0, 0, c.width, c.height);
         let first = this.commands.shift();
         if (first) {
-            let {action, index, val} = first;
+            let { action, index, val } = first;
             for (let [idx, n] of this.numbers.entries()) {
                 this.graphic.draw(idx, n);
             }
@@ -57,13 +57,13 @@ class MyPanel {
         const read = {
             get: function (target, property) {
                 if (!isNaN(property)) {
-                    _that.commands.push({action: "read", index: property, val: target[property]});
+                    _that.commands.push({ action: "read", index: property, val: target[property] });
                 }
                 return target[property];
             },
             set: function (target, property, value) {
                 target[property] = value;
-                _that.commands.push({action: "write", index: property, val: value});
+                _that.commands.push({ action: "write", index: property, val: value });
                 return true;
             }
         };

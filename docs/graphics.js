@@ -1,4 +1,4 @@
-export class UIGraphics {
+class UIGraphics {
     constructor(name) {
         this.name = name;
         this.outerSpace = 5;
@@ -160,4 +160,4 @@ class Swirl extends UIGraphics {
         this.angle_incr = 6 * Math.PI / 180;
     }
 }
-export const graphics = [new Bars(), new Circle(), new DisparityDots(), new Histogram(), new InnerCircle(), new Line(), new Pyramid(), new Swirl()];
+export default [new Bars(), new Circle(), new DisparityDots(), new Histogram(), new InnerCircle(), new Line(), new Pyramid(), new Swirl()];
