@@ -20,10 +20,9 @@ h1 {
 }
 canvas {
     width: 100%;
-}
+    }
 form {
     margin-bottom: 1em;
-    height: 20px;
 }
 input[type='number'][name='qtd'], input[type='number'][name='delay'], input[type='number'][name='rep'] {
     width: 5em;
@@ -39,11 +38,7 @@ th:nth-child(2), td:nth-child(2) {
     text-align: center;
 }
 @media (max-width: 480px) {
-    h1 {
-        display: none;
-    }
     canvas {
-        margin-top: 1em;
-        height: 50vh;
+        height: 30vh;
     }
 }
