@@ -12,7 +12,7 @@ class MyPanel {
         this.commands = null;
     }
     shuffle() {
-        let qtd = parseInt(this.sQuantity.value);
+        let qtd = this.sQuantity.valueAsNumber;
         let v = [...Array(qtd)].map((_, i) => i + 1);
         this.numbers = this.getShuffledArr(v);
         this.print();
@@ -34,7 +34,7 @@ class MyPanel {
             if (action === "write") {
                 this.numbers[index] = val;
             }
-            let delay = parseInt(this.sDelay.value);
+            let delay = this.sDelay.valueAsNumber;
             setTimeout(this.print.bind(this), delay);
         } else {
             for (let [idx, n] of this.numbers.entries()) {
