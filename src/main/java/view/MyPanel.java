@@ -58,12 +58,12 @@ public class MyPanel extends JPanel {
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
         if (!commands.isEmpty()) {
             var first = commands.remove(0);
-            int value = first.getValue();
+            int value = first.value();
             for (int idx = 0; idx < numbers.size(); idx++) {
                 grap.draw(idx, numbers.get(idx));
             }
-            if (first.getAction() == Command.WRITE) {
-                numbers.set(first.getIndex(), value);
+            if (first.action() == Command.WRITE) {
+                numbers.set(first.index(), value);
             }
             int delay = (Integer) this.frame.getsDelay().getValue();
             var timer = new Timer(delay, ae -> repaint());
