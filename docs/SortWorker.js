@@ -1,5 +1,3 @@
-/* global algorithms */
-
 importScripts('sorting.js');
 onmessage = function (e) {
     let obj = e.data, alg = algorithms[obj.index].method, elapsedTime = 0;

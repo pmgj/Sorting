@@ -176,7 +176,7 @@ class GnomeSort extends SortingAlgorithm {
         super("Gnome Sort");
     }
     sort(array) {
-        for (let i = 0; i < array.length; ) {
+        for (let i = 0; i < array.length;) {
             if (i === 0 || array[i - 1] <= array[i]) {
                 i++;
             } else {
@@ -307,8 +307,8 @@ class QuickSort extends SortingAlgorithm {
     sort(array, left = 0, right = array.length - 1) {
         let partition = (items, left, right) => {
             var pivot = items[Math.floor((right + left) / 2)], //middle element
-                    i = left, //left pointer
-                    j = right; //right pointer
+                i = left, //left pointer
+                j = right; //right pointer
             while (i <= j) {
                 while (items[i] < pivot) {
                     i++;
@@ -356,7 +356,7 @@ class RadixSort extends SortingAlgorithm {
         };
         const max = getMax(array);
         for (let i = 0; i < max; i++) {
-            let buckets = Array.from({length: 10}, () => []);
+            let buckets = Array.from({ length: 10 }, () => []);
             for (let j = 0; j < array.length; j++) {
                 buckets[getPosition(array[j], i)].push(array[j]);
             }

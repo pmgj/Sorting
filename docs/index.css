@@ -1,42 +1,19 @@
-h1 {
-    text-align: center;
-}
-#info {
-    text-align: center;
-}
-#options {
-    width: 25%;
-    margin-left: 10%;
-}
-#output {
-    width: 55%;
-    margin-right: 10%;
-}
-#options, #output {
-    float: left;
-}
-#options, form div {
-    text-align: left;
-}
 canvas {
     width: 100%;
-    }
-form {
-    margin-bottom: 1em;
 }
+
 input[type='number'][name='qtd'], input[type='number'][name='delay'], input[type='number'][name='rep'] {
-    width: 5em;
+    max-width: 5em;
 }
-table {
-    border-collapse: collapse;
-    width: 100%;
+
+select[name="graphic"] {
+    max-width: 7em;
 }
-td, th {
-    border: 1px solid black;
+
+select[name="algorithm"] {
+    max-width: 13em;
 }
-th:nth-child(2), td:nth-child(2) {
-    text-align: center;
-}
+
 @media (max-width: 480px) {
     canvas {
         height: 30vh;
